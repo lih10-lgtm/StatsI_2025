@@ -65,7 +65,7 @@
 
 
 \title{Problem Set 1}
-\date{Due: October 9, 2025}
+\date{\today}
 \author{Hanyu Li (Student ID: 25346841)}
 
 \begin{document}
@@ -136,20 +136,29 @@
 		Please plot the relationships among \emph{Y}, \emph{X1}, \emph{X2}, and \emph{X3}? What are the correlations among them (you just need to describe the graph and the relationships among them)?
 		
 		\vspace{.5cm}
-		\lstinputlisting[language=R, firstline=75, lastline=84]{PS01_answers_HanyuLi_25346841.R}
+		\lstinputlisting[language=R, firstline=78, lastline=86]{PS01_answers_HanyuLi_25346841.R}
 		
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=.75\textwidth]{plot_all.pdf}
-		\caption{\footnotesize Relationships Among Y, X1, X2, X3}
-		\label{fig:plot_1}
-	\end{figure}
+	The correlations between Y,X1,X2 and X3 are shown as below:
+	\begin{verbatim}
+	           Y        X1        X2        X3
+	Y  1.0000000 0.5317212 0.4482876 0.4636787
+	X1 0.5317212 1.0000000 0.2056101 0.5952504
+	X2 0.4482876 0.2056101 1.0000000 0.2210149
+	X3 0.4636787 0.5952504 0.2210149 1.0000000
+	\end{verbatim}
+		
+  \begin{figure}[H]
+	\centering
+	\includegraphics[width=.85\textwidth]{plot_all.pdf}
+	\caption{\footnotesize Relationships Among Y, X1, X2, X3}
+	\label{fig:plot_1}
+   \end{figure}
 	
-	Figure \ref{fig:plot_1} indicates that:\\
-	Per capita expenditure (Y) is positively associated with per capita personal income (X1).\\
-	Y shows little to no linear association with financial insecurity (X2).\\
-	Y is positively related to urban population density (X3), though this relationship is weaker than that with X1.\\
-	Among the independent variables, a positive relationship appears between X1 and X3, while their associations involving X2 are weak or unclear.
+	
+	Figure \ref{fig:plot_1} and correlation analysis outcomes indicates that:\\
+	A moderate and positive correlation between per capita expenditure on shelters/housing assistance (Y) and per capita personal income (X1), with a correlation coefficient of approximately 0.53.\\
+	Y also shows moderate positive associations with both financial insecurity (X2, r$\approx$0.45) and urban population density (X3, r$\approx$0.46).\\
+	Among the independent variables, per capita personal income (X1) and urban population density (X3) exhibited a strong positive correlation (r$\approx$0.60), while the relationships involving financial insecurity (X2) and the other predictors were found to be weaker.
 	
 	\newpage
 		
@@ -157,29 +166,32 @@
 		Please plot the relationship between \emph{Y} and \emph{Region}? On average, which region has the highest per capita expenditure on housing assistance?
 		
 		\vspace{.5cm}
-		\lstinputlisting[language=R, firstline=92, lastline=103]{PS01_answers_HanyuLi_25346841.R}
+		\lstinputlisting[language=R, firstline=94, lastline=105]{PS01_answers_HanyuLi_25346841.R}
 		\vspace{.2cm}
-	  \begin{figure}[H]
-		\centering
-		\includegraphics[width=.75\textwidth]{plot_Y_RG.pdf}
-		\caption{\footnotesize Relationship Between Y And Region}
-		\label{fig:plot_2}
-	  \end{figure}
+		
+	    \begin{figure}[H]
+		  \centering
+		  \includegraphics[width=.85\textwidth]{plot_Y_RG.pdf}
+		  \caption{\footnotesize Relationship Between Y And Region}
+		  \label{fig:plot_2}
+	    \end{figure}
+	  
 	  \vspace{.2cm}
 	  Figure \ref{fig:plot_2} shows averagely, west region has the highest per capita expenditure on housing assistance.
 		
    	  \vspace{1cm} 
-		
+   	  
+	\newpage
 		
 		\item
 		Please plot the relationship between \emph{Y} and \emph{X1}? Describe this graph and the relationship. Reproduce the above graph including one more variable \emph{Region} and display different regions with different types of symbols and colors.
 		
-		\lstinputlisting[language=R, firstline=107, lastline=112]{PS01_answers_HanyuLi_25346841.R}
+		\lstinputlisting[language=R, firstline=109, lastline=114]{PS01_answers_HanyuLi_25346841.R}
 		
 
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=.75\textwidth]{plot_Y_X1.pdf}
+			\includegraphics[width=.85\textwidth]{plot_Y_X1.pdf}
 			\caption{\footnotesize Relationship Between Y And X1}
 			\label{fig:plot_3}
 		\end{figure}
@@ -188,17 +200,16 @@
 		
 		\vspace{1cm}
 		
-		\lstinputlisting[language=R, firstline=115, lastline=122]{PS01_answers_HanyuLi_25346841.R}
+		Adding variable \emph{Region} to the plot and display different regions with different types of symbols and colors.
+		\lstinputlisting[language=R, firstline=117, lastline=124]{PS01_answers_HanyuLi_25346841.R}
 		
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=.75\textwidth]{plot_Y_X1_byRG.pdf}
+			\includegraphics[width=.85\textwidth]{plot_Y_X1_byRG.pdf}
 			\caption{\footnotesize Relationship Between Y And X1 By Region}
 			\label{fig:plot_4}
 		\end{figure}
 		
-		
-	
 		
 	\end{itemize}
 	

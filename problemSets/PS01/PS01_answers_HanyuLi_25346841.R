@@ -82,11 +82,13 @@ str(expenditure)
 pdf("plot_all.pdf")
 pairs(expenditure[,c('Y','X1','X2','X3')])
 dev.off()
-# plot_all indicates:
-# per capita expenditure (Y) is positively associated with per capita personal income (X1).
-# Y shows little to no linear association with financial insecurity (X2).
-# Y is positively related to urban population density (X3), though this relationship is weaker than that with X1.
-# among the independent variables, a positive relationship appears between X1 and X3, while their associations involving X2 are weak or unclear.
+# explore correlations between Y,X1,X2 and X3
+cor(expenditure[, c("Y", "X1", "X2", "X3")])
+
+# the plot_all and correlation outcome shows:
+# a moderate and positive correlation between per capita expenditure on shelters/housing assistance (Y) and per capita personal income (X1), with a correlation coefficient of approximately 0.53.
+# Y also shows moderate positive associations with both financial insecurity (X2, r ≈ 0.45) and urban population density (X3, r ≈ 0.46).
+# Among the independent variables, per capita personal income (X1) and urban population density (X3) exhibited a strong positive correlation (r ≈ 0.60), while the relationships involving financial insecurity (X2) and the other predictors were found to be weaker.
 
 
 #factor region becasuse region here is a categorical variable

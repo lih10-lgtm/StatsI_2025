@@ -77,14 +77,14 @@
 	
 	\vspace{.5cm}
 	
-	\lstinputlisting[language=R, firstline=38, lastline=38]{PS01_answers_HanyuLi_25346841.R}  
+	\lstinputlisting[language=R, firstline=38, lastline=38]{PS01_HL.R}  
 	
 	\vspace{1cm}
 	
 	\begin{enumerate}
 		\item Find a 90\% confidence interval for the average student IQ in the school.\\
 		
-		\lstinputlisting[language=R, firstline=40, lastline=58]{PS01_answers_HanyuLi_25346841.R} 
+		\lstinputlisting[language=R, firstline=40, lastline=58]{PS01_HL.R} 
 		
 		The 90\% confidence interval is (93.95993, 102.92007); sample mean (98.44).
 		
@@ -93,7 +93,7 @@
 		\noindent Using the same sample, conduct the appropriate hypothesis test with $\alpha=0.05$.
 	\end{enumerate}
 	
-	\lstinputlisting[language=R, firstline=61, lastline=64]{PS01_answers_HanyuLi_25346841.R}
+	\lstinputlisting[language=R, firstline=61, lastline=64]{PS01_HL.R}
 	
 	\begin{verbatim}
 		data:  y
@@ -136,7 +136,7 @@
 		Please plot the relationships among \emph{Y}, \emph{X1}, \emph{X2}, and \emph{X3}? What are the correlations among them (you just need to describe the graph and the relationships among them)?
 		
 		\vspace{.5cm}
-		\lstinputlisting[language=R, firstline=78, lastline=86]{PS01_answers_HanyuLi_25346841.R}
+		\lstinputlisting[language=R, firstline=78, lastline=86]{PS01_HL.R}
 		
 	The correlations between Y,X1,X2 and X3 are shown as below:
 	\begin{verbatim}
@@ -166,10 +166,10 @@
 		Please plot the relationship between \emph{Y} and \emph{Region}? On average, which region has the highest per capita expenditure on housing assistance?
 		
 		\vspace{.5cm}
-		\lstinputlisting[language=R, firstline=94, lastline=105]{PS01_answers_HanyuLi_25346841.R}
+		\lstinputlisting[language=R, firstline=94, lastline=105]{PS01_HL.R}
 		\vspace{.2cm}
 		
-	    \begin{figure}[H]
+	    \begin{figure}[h]
 		  \centering
 		  \includegraphics[width=.85\textwidth]{plot_Y_RG.pdf}
 		  \caption{\footnotesize Relationship Between Y And Region}
@@ -177,7 +177,7 @@
 	    \end{figure}
 	  
 	  \vspace{.2cm}
-	  Figure \ref{fig:plot_2} shows averagely, west region has the highest per capita expenditure on housing assistance.
+	  Figure \ref{fig:plot_2} shows: of the four regions, the \textbf{West} exhibits the highest expenditure: its median line (black line) is the highest, the overall position of the box is higher, and the maximum value is also the largest. Therefore, it is reasonable to conclude that the West region has the highest level of expenditure.
 		
    	  \vspace{1cm} 
    	  
@@ -186,7 +186,7 @@
 		\item
 		Please plot the relationship between \emph{Y} and \emph{X1}? Describe this graph and the relationship. Reproduce the above graph including one more variable \emph{Region} and display different regions with different types of symbols and colors.
 		
-		\lstinputlisting[language=R, firstline=109, lastline=114]{PS01_answers_HanyuLi_25346841.R}
+		\lstinputlisting[language=R, firstline=109, lastline=115]{PS01_HL.R}
 		
 
 		\begin{figure}[H]
@@ -201,9 +201,9 @@
 		\vspace{1cm}
 		
 		Adding variable \emph{Region} to the plot and display different regions with different types of symbols and colors.
-		\lstinputlisting[language=R, firstline=117, lastline=124]{PS01_answers_HanyuLi_25346841.R}
+		\lstinputlisting[language=R, firstline=118, lastline=126]{PS01_HL.R}
 		
-		\begin{figure}[H]
+		\begin{figure}[!ht]
 			\centering
 			\includegraphics[width=.85\textwidth]{plot_Y_X1_byRG.pdf}
 			\caption{\footnotesize Relationship Between Y And X1 By Region}

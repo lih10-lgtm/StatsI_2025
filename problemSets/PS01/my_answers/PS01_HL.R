@@ -111,6 +111,7 @@ pdf("plot_Y_X1.pdf")
 plot(expenditure$X1,expenditure$Y,
      xlab = "Personl Income Per Captia",
      ylab = "Expenditure On Assistance Per Capita")
+     abline(lm(Y ~ X1, data = expenditure), col = "grey", lwd = 1)
 dev.off()
 # the scatter plot(plot_Y_X1) indicates that per capita expenditure (Y) is positively associated with per capita personal income (X1),which means as the state's per capita personal income increases, shelters/housing assistance spending per captia grows as well.
 
@@ -119,6 +120,7 @@ dev.off()
 pdf("plot_Y_X1_byRG.pdf")
 ggplot(expenditure, aes(x = X1, y = Y, color = Region, shape = Region)) +  
   geom_point()+
+  geom_smooth(aes(group = 1),method = "lm", se = FALSE, linetype = "solid",col= "grey") +
   xlab("Personl Income Per Captia") +
   ylab("Expenditure On Assistance Per Capita")
 dev.off()

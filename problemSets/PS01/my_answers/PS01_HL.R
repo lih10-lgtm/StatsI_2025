@@ -96,12 +96,17 @@ class(expenditure$Region)
 expenditure$Region <- factor(expenditure$Region,
                              levels = c(1:4),
                              labels = c("Northwest","North Central","South","West"))
+#calculate Y_mean of each region
+mean_rg <- aggregate(Y ~ Region, data = expenditure, mean, na.rm = TRUE)
 
 #plot the relationship between Y and Region
 pdf("plot_Y_RG.pdf")
 boxplot(expenditure$Y ~ expenditure$Region,data = expenditure,
         xlab = "Region",
         ylab = "Expenditure On Assistance Per Capita")
+
+#show positions of mean by region on the boxplot
+points(1:length(mean_rg$Y), mean_rg$Y, pch = 19 ,col = "blue")
 dev.off()
 # the boxplot(plot_Y_RG) shows averagely,west region has the highest per capita expenditure on housing assistance.
 

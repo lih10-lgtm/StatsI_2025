@@ -118,9 +118,9 @@
 		\]
 		
 		The R code lines are as below:
-		\lstinputlisting[language=R, firstline=2, lastline=22]{PS02_HL.R}
+		\lstinputlisting[language=R, firstline=2, lastline=28]{PS02_HL.R}
 		
-		The manual calculation in R yields a chi-square value of 3.4125, indicating some discrepancy between the observed and expected frequency distributions. Further testing is required to draw a final conclusion.
+		The manual calculation in R yields a chi-square value of 3.791168, indicating some discrepancy between the observed and expected frequency distributions. Further testing is required to draw a final conclusion.
 		
 		\item [(b)] Now calculate the p-value from the test statistic you just created (in \texttt{R}).\footnote{Remember frequency should be $>$ 5 for all cells, but let's calculate the p-value here anyway.} What do you conclude if $\alpha = 0.1$?
 		
@@ -132,12 +132,12 @@
 		Subsequently, the p-value is computed using the pchisq() function in R.
 		
 		The R code lines are as below:
-		\lstinputlisting[language=R, firstline=24, lastline=26]{PS02_HL.R}
+		\lstinputlisting[language=R, firstline=31, lastline=34]{PS02_HL.R}
 		
-		The calculated p-value is 0.1502306. At a significance level of 0.1, this indicates that if the null hypothesis were true, the probability of observing the obtained frequency distribution would be approximately 15\%. Since this is greater than a significance level of 10\%, we do not have sufficient evidence to reject the null hypothesis. Thus, it can be concluded that the social class of employee drivers and bribery solicitation by police officers are statistically independent.
+		The calculated p-value is 0.1502306. This indicates that at a significance level of 0.1,if the null hypothesis were true, there is a 15\% probability of observing a difference at least as extreme as the one observed in the data. Since this is greater than a significance level of 10\%, we do not have sufficient evidence to reject the null hypothesis. Thus, it can be concluded that the social class of employee drivers and bribery solicitation by police officers are statistically independent.
 		
 		\item [(c)] Calculate the standardized residuals for each cell and put them in the table below.
-		
+		\lstinputlisting[language=R, firstline=36, lastline=38]{PS02_HL.R}
 		\begin{table}[H]
 			\centering
 			\begin{tabular}{l | c c c }
@@ -172,21 +172,21 @@
 		\[
 		Y_i = \alpha + \beta X_i + \epsilon_i
 		\]
-		where $Y_i$ denotes the number of new or repaired drinking water facilities in village $i$, $X_i$ is a binary variable indicating whether the GP leadership is reserved for a female leader, $\alpha$ is the intercept, $\beta$ measures the effect of female leadership reservation, and $\epsilon_i$ is the error term.
+		where $Y_i$  is the number of new or repaired drinking water facilities in village $i$, $X_i$ is a binary variable indicating whether the GP leadership is reserved for a female leader, $\alpha$ is the intercept, $\beta$ measures the effect of female leadership reservation, and $\epsilon_i$ is the error term.
 		
 		The hypotheses are formulated as follows:
 		\[
 		\text{Null hypothesis: } H_0: \beta = 0
 		\]
-		which states that female leaders' reservations in GP ($X$) have no effect on the number of drinking water facilities ($Y$), and
+		which means that female leaders' reservations in GP ($X_i$) have no effect on the number of drinking water facilities ($Y_i$), and
 		\[
 		\text{Alternative hypothesis: } H_1: \beta \neq 0
 		\]
-		which states that female leaders' reservations in GP ($X$) do have an effect on the number of drinking water facilities ($Y$).
+		which means that female leaders' reservations in GP ($X_i$) do have an effect on the number of drinking water facilities ($Y_i$).
 		
 		\item [(b)] Run a bivariate regression to test this hypothesis in \texttt{R} (include your code!).
 		
-		After importing the data, the structure and distribution were examined, and basic data cleaning was performed. \\
+		After importing the data, first view the data structure and distribution，here reversed is a dichotomous variable so we need to factor it in R. \\
 		
 		\begin{verbatim}
 			GP         village           reserved       female         irrigation    
@@ -207,9 +207,22 @@
 		
 		A linear regression model was then fitted. The code and regression results are as follows:
 		
-		\lstinputlisting[language=R, firstline=32, lastline=44]{PS02_HL.R}
+		\lstinputlisting[language=R, firstline=40, lastline=52]{PS02_HL.R}\\
+	
+		\begin{verbatim}
+			Coefficients:
+			Estimate Std. Error t value Pr(>|t|)    
+			(Intercept)             14.738      2.286   6.446 4.22e-10 ***
+			data$reservedReserved    9.252      3.948   2.344   0.0197 *  
+			---
+			Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+			
+			Residual standard error: 33.45 on 320 degrees of freedom
+			Multiple R-squared:  0.01688,	Adjusted R-squared:  0.0138 
+			F-statistic: 5.493 on 1 and 320 DF,  p-value: 0.0197
+		\end{verbatim}
 		
-		\begin{table}[!htbp]
+		\begin{table}[H]
 			\centering
 			\caption{Regression Results}
 			\begin{tabular}{@{\extracolsep{5pt}}lc}
@@ -237,9 +250,9 @@
 		
 		The intercept (\(\alpha = 14.738\)) indicates that when the GP leadership is not reserved for a female leader, the average number of new or repaired drinking water facilities is about 14.7.
 		
-		The p-value for the model is 0.0197. At a significance level of 0.05, this is less than 0.05, providing evidence to support the alternative hypothesis: female leaders' reservations in GP have a significant effect on the number of drinking water facilities. The positive coefficient indicates that the reservation of female leadership increases the number of facilities built or repaired in the villages.
+		The p-value for the model is 0.0197. At a significance level of 0.05, this is less than 0.05, providing evidence to support the alternative hypothesis: female leaders' reservations in GP do have an effect on the number of drinking water facilities. The positive coefficient indicates that the reservation of female leadership increases the number of facilities built or repaired in the villages.
 		
-		However, the adjusted \(R\)-squared is only 0.014, very close to zero, indicating that the model does not fit the data well. The reservation of female leadership explains only a small part of the variation in the number of new or repaired drinking water facilities.
+		However, the \(R\)-squared is only 0.017, very close to zero, indicating that the model does not fit the data well. The reservation of female leadership explains only a small part(around 1.7\%) of the variation in the number of new or repaired drinking water facilities.
 		
 		\item [(c)] Interpret the coefficient estimate for reservation policy.
 		

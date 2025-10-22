@@ -20,10 +20,18 @@ expected_fre <- outer(row_total, col_total) / grand_total
 # Calculate Chi-square t-statistic manually
 chi_sq <- sum((study_data - expected_fre)^2 / expected_fre)
 chi_sq
+#outcome shows x-suqared is 3.791168
+
+# Double check with in-built R code
+check<-chisq.test(study_data)
+check$statistic
+# Outcome shows x-suqared is 3.791168,identical to the mannualy calculated on
+
 
 # Q1(b):calculate the p-value 
 df = (nrow(study_data)-1)*(ncol(study_data)-1)
 pchisq(chi_sq, df, lower.tail = FALSE)
+# Outcome shows p-value is 0.1502306
 
 #Q1(c):calculate the standardized residuals for each cell
 z <- (study_data - expected_fre) / sqrt(expected_fre * (1 - row_total/grand_total) * (1 - col_total/grand_total))
